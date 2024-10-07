@@ -18,7 +18,7 @@ app.get('/greetings/:name', (req,res) => {
 
 app.get('/roll/:number', (req, res) => {
     const number = req.params.number
-    if (isNaN(number)) {
+    if (num(number)) {
         return res.send("You must specify a number.")
     }
     const maxNumber = parseInt(number, 10)
@@ -41,7 +41,7 @@ const collectibles = [
     const index = parseInt(req.params.index, 10);
 
     
-    if (isNaN(index) || index < 0 || index >= collectibles.length) {
+    if (num(index) || index < 0 || index >= collectibles.length) {
         return res.send("This item is not yet in stock. Check back soon!");
     }
 
